@@ -11,7 +11,6 @@ from rest_framework.authentication import TokenAuthentication
 class register (generics.ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = accountserelizers
-    permission_classes = [AllowAny]
 
     def list(self, request, *args, **kwargs):
         try:
