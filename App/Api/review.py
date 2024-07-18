@@ -5,10 +5,11 @@ from rest_framework.filters import SearchFilter, OrderingFilter
 from App.Serelizer.reviewserializer import ReviewSerializer
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.pagination import LimitOffsetPagination
-
+from rest_framework.permissions import AllowAny
 
 class ReviewView (generics.ListCreateAPIView):
     queryset = ReviewUser.objects.all()
+    permission_classes = [AllowAny]
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
     pagination_class = LimitOffsetPagination
     serializer_class = ReviewSerializer
